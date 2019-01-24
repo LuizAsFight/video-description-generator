@@ -10,9 +10,9 @@ const VideoDescriptionGenerator = {
     }
 
     return items.reduce((prev, { title, link, time }, i) => {
-      console.log({ title, link, time });
-      const _time = (typeof time === 'string' && time.indexOf(':')) ? time : VideoDescriptionGenerator._parseTime(time);
-      prev += `${title ? `${VideoDescriptionGenerator.titleIcon} ${title}${VideoDescriptionGenerator.afterTitleDivider}` : ''}${link ? `${VideoDescriptionGenerator.linkIcon} ${link}${VideoDescriptionGenerator.afterLinkDivider}` : ''}${`${VideoDescriptionGenerator.clockIcon} ${_time}`}
+      const _time = time ? (typeof time === 'string' && time.indexOf(':')) ? time : VideoDescriptionGenerator._parseTime(time) : time;
+      if (title || _time || link)
+      prev += `${title ? `${VideoDescriptionGenerator.titleIcon} ${title}${VideoDescriptionGenerator.afterTitleDivider}` : ''}${link ? `${VideoDescriptionGenerator.linkIcon} ${link}${VideoDescriptionGenerator.afterLinkDivider}` : ''}${_time ? `${VideoDescriptionGenerator.clockIcon} ${_time}` : ''}
 `;
       return prev;
     }, ``);
