@@ -10,7 +10,7 @@ const VideoDescriptionGenerator = {
     }
 
     return items.reduce((prev, { title, link, time }, i) => {
-      prev += `${title ? `${VideoDescriptionGenerator.titleIcon} ${title}${VideoDescriptionGenerator.afterTitleDivider}` : ''}${link ? `${VideoDescriptionGenerator.linkIcon} ${link}${VideoDescriptionGenerator.afterLinkDivider}` : null}${`${VideoDescriptionGenerator.clockIcon} ${time}`}
+      prev += `${title ? `${VideoDescriptionGenerator.titleIcon} ${title}${VideoDescriptionGenerator.afterTitleDivider}` : ''}${link ? `${VideoDescriptionGenerator.linkIcon} ${link}${VideoDescriptionGenerator.afterLinkDivider}` : ''}${`${VideoDescriptionGenerator.clockIcon} ${time}`}
 `;
       return prev;
     }, ``);
