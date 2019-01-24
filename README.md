@@ -1,20 +1,26 @@
-is-element-visible
+video-description-generator
 ===============
 
-Checks if a DOM element is really visible.
-This repo is suppose to cover all caveats (display, opacity, visibility, overflow), so any suggestions/help/PR would be appreaciated.
-
-No jQuery or any dependencies needed at all, just pure JS here :)
+Generate description from titles, links and times. A cool default template for describing videos.
 
 ### Install
 
-`npm i is-element-visible`
+`npm i video-description-generator`
 
 ### Usage
 
 ``` Javascript
-import isVisible from 'is-element-visible';
+import videoDescriptionGenerator from 'video-description-generator';
 
-const el = document.getElementById('id');
-isVisible(el);
+const items = [{
+  title: 'Some great product",
+  link: 'https://somestore.com/affiliateId',
+  time: 85
+}, {
+  title: 'Some awesome product",
+  link: 'https://somestore.com/affiliateId',
+  time: 126
+}];
+
+videoDescriptionGenerator.generateTextToCopy(items)
 ```
