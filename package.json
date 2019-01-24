@@ -1,0 +1,31 @@
+{
+  "name": "video-description-generator",
+  "version": "1.0.0",
+  "description": "Generate description from titles and times. Default template for describing videos.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "webpack",
+    "dev:build": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizAsFight/video-description-generator.git"
+  },
+  "keywords": [
+    "video description generator"
+  ],
+  "author": "Luiz Felipe Bolsoni Gomes <felipebolsonigomes@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuizAsFight/video-description-generator/issues"
+  },
+  "homepage": "https://github.com/LuizAsFight/video-description-generator#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
