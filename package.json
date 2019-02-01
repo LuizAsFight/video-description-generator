@@ -1,6 +1,6 @@
 {
   "name": "video-description-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate description from titles and times. Default template for describing videos.",
   "main": "dist/main.js",
   "scripts": {

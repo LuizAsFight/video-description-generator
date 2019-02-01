@@ -1,19 +1,29 @@
 const VideoDescriptionGenerator = {
   titleIcon: '➤',
+  maxTitleLength: 30,
   linkIcon: '🔗',
   clockIcon: '⏰',
-  afterTitleDivider: '       ',
-  afterLinkDivider: '         ',
-  generateDescription: (items) => {
+  afterTitleDivider: `       `,
+  afterLinkDivider: ``,
+  afterTimeDivider: `  `,
+  generateDescription: (items, { useIcons } = {}) => {
     if (!Array.isArray(items)) {
       items = [items];
     }
 
     return items.reduce((prev, { title, link, time }, i) => {
-      const _time = time ? (typeof time === 'string' && time.indexOf(':')) ? time : VideoDescriptionGenerator._parseTime(time) : time;
-      if (title || _time || link)
-      prev += `${title ? `${VideoDescriptionGenerator.titleIcon} ${title}${VideoDescriptionGenerator.afterTitleDivider}` : ''}${link ? `${VideoDescriptionGenerator.linkIcon} ${link}${VideoDescriptionGenerator.afterLinkDivider}` : ''}${_time ? `${VideoDescriptionGenerator.clockIcon} ${_time}` : ''}
+      const _time = ( time != undefined ) ?
+        (typeof time === 'string' && time.indexOf(':'))
+          ? time
+          : VideoDescriptionGenerator._parseTime(time)
+        : time;
+      if (title || _time || link) {
+        if (title && title.length > VideoDescriptionGenerator.maxTitleLength) {
+          title = title.substring(0, VideoDescriptionGenerator.maxTitleLength) + '...';
+        }
+        prev += `${_time ? `${_time}${VideoDescriptionGenerator.afterTimeDivider}` : ''}${title ? `${title}${VideoDescriptionGenerator.afterTitleDivider}` : ''}${link ? `${link}${VideoDescriptionGenerator.afterLinkDivider}` : ''}
 `;
+      }
       return prev;
     }, ``);
   },
