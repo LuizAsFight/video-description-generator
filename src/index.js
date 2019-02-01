@@ -21,7 +21,7 @@ const VideoDescriptionGenerator = {
         if (title && title.length > VideoDescriptionGenerator.maxTitleLength) {
           title = title.substring(0, VideoDescriptionGenerator.maxTitleLength) + '...';
         }
-        prev += `${_time ? `${_time}${VideoDescriptionGenerator.afterTimeDivider}` : ''}${title ? `${title}${VideoDescriptionGenerator.afterTitleDivider}` : ''}${link ? `${link}${VideoDescriptionGenerator.afterLinkDivider}` : ''}
+        prev += `${_time ? `${_time}${VideoDescriptionGenerator.afterTimeDivider}` : ''}${title ? `${title}` : ''}${link ? `${VideoDescriptionGenerator.afterTitleDivider}${link}${VideoDescriptionGenerator.afterLinkDivider}` : ''}
 `;
       }
       return prev;
